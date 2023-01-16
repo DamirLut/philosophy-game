@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <style>
+    #panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 1em;
+      width: 25em;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: 500ms;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+
+    #panel>img {
+      background-color: #fff;
+      border-radius: 5px;
+      width: 400px;
+    }
+
+    #panel>button {
+      width: 70%;
+      height: 2em;
+      font-size: 24px;
+    }
+
+    #list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      border-top: 1px solid #fff;
+      padding-top: 1em;
+      width: 100%;
+    }
+
+    #list>span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <div id="panel">
+    <img width="400" height="400" id="qr" />
+    <button id="start">Начать</button>
+    <div id="list"></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    var qrUrl = (roomId) => "https://disk.yandex.net/qr/?text=" + encodeURIComponent("https://iky.su/philosophy-game/controller.html#" + roomId) + "&download=1&format=svg"
+    document.getElementById("qr").src = qrUrl('123')
+  </script>
+</body>
+
+</html>
